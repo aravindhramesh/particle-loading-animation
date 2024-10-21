@@ -22,11 +22,11 @@ function ParticleSwarm({ count = 2000, radius = 1.5 }) {
     return positions;
   }, [count, radius]);
 
-  // CHANGED: Modified useFrame to rotate continuously in one direction
+
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
-    points.current.rotation.y = time * 0.2; // Rotate around Y-axis
-    points.current.rotation.x = Math.sin(time * 0.2) * 0.1; // Slight wobble on X-axis
+    points.current.rotation.x = Math.sin(time / 4);
+    points.current.rotation.y = Math.sin(time / 2);
   });
 
   return (
